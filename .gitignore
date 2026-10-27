@@ -3,3 +3,8 @@
 WhatsApp Chat with*
 "WhatsApp Chat with 🧚‍♀️🧚‍♀️Mayukha 🧚‍♀️🧚‍♀️"/
 "WhatsApp Chat with 🧚‍♀️🧚‍♀️Mayukha 🧚‍♀️🧚‍♀️.zip"
+
+# Node & Remotion build artifacts
+node_modules
+out/
+.remotion
