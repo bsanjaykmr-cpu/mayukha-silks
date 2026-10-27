@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mayukha Silks & Couture - Royal Heritage Looms, Silk Mark Certified Pure Silks, Authentic Mashru Crepe, Munga Kalamkari, Binny Chiffon Scallop, Benarasi & Wholesale Lounge.">
+  <title>Mayukha Silks & Couture | Royal Heritage Looms & Handcrafted Silks</title>
+  
+  <!-- Favicon / Brand Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. TOP PROMOTIONAL & SILK MARK MARQUEE
+       ========================================================================= -->
+  <aside class="announcement-bar" aria-label="Announcements">
+    <div class="marquee-content">
+      <div class="marquee-item">
+        <span>✦</span>
+        <span>MAYUKHA MONOPOLY COLLECTION • DIRECT LOOM EXCLUSIVES</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>COMPLIMENTARY HERITAGE PACKAGING ON ORDERS OVER ₹5,000</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>GOVT. RECOGNIZED SILK MARK CERTIFIED PURITY GUARANTEE</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>WHOLESALE RESELLER PRIVILEGES & UR RATES AVAILABLE VIA PIN 2026</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>EXPRESS GLOBAL DISPATCH TO USA, UK, UAE & ACROSS INDIA</span>
+      </div>
+      <!-- Repeated for smooth infinite scroll -->
+      <div class="marquee-item">
+        <span>✦</span>
+        <span>MAYUKHA MONOPOLY COLLECTION • DIRECT LOOM EXCLUSIVES</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>COMPLIMENTARY HERITAGE PACKAGING ON ORDERS OVER ₹5,000</span>
+      </div>
+      <div class="marquee-item">
+        <span class="marquee-dot"></span>
+        <span>GOVT. RECOGNIZED SILK MARK CERTIFIED PURITY GUARANTEE</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       2. PERSISTENT WHOLESALE STATUS BAR (Shown when dealer unlocks)
+       ========================================================================= -->
+  <section id="dealerStatusBar" class="dealer-status-bar" aria-label="Dealer Wholesale Session Status">
+    <div class="container">
+      <div class="dealer-bar-inner">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span class="dealer-badge">
+            <span class="dealer-pulse"></span>
+            Verified Reseller Partner Active
+          </span>
+          <span style="font-size: 0.85rem; color: #E8F5E9;">
+            Loom-direct "Ur Wholesale Rates" & Recommended Reseller Quotes unlocked.
+          </span>
+        </div>
+        <div class="dealer-bar-actions">
+          <span style="font-size: 0.82rem; opacity: 0.9;">Session: Reseller Access (PIN 2026)</span>
+          <button id="dealerLogoutBtn" class="dealer-logout-btn" title="Exit dealer mode and revert to retail pricing">
+            Lock & Return to Retail
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. STICKY LUXURY HEADER
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="header-inner">
+        
+        <!-- Live Instant Search -->
+        <div class="header-search">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search weaves, fabrics, zari, codes..." aria-label="Search catalog">
+        </div>
+
+        <!-- Brand Monogram & Title -->
+        <a href="#hero" class="brand-identity" title="Mayukha Silks & Couture Home">
+          <span class="brand-monogram">MAYUKHA</span>
+          <h1 class="brand-title">SILKS & COUTURE</h1>
+          <span class="brand-subtitle">Royal Heritage Looms</span>
+        </a>
+
+        <!-- Header Controls (Dealer, Wishlist, Cart) -->
+        <div class="header-actions">
+          <button id="dealerTriggerBtn" class="dealer-btn" title="Access wholesale reseller pricing">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span id="dealerBtnLabel">Dealer Lounge</span>
+          </button>
+
+          <button id="wishlistTriggerBtn" class="action-icon-btn" title="Saved Heirlooms" aria-label="Wishlist">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="action-counter" id="wishlistCounter">0</span>
+          </button>
+
+          <button id="cartTriggerBtn" class="action-icon-btn" title="Shopping Bag" aria-label="Cart">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="action-counter" id="cartCounter">0</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Secondary Category Nav Strip -->
+    <nav class="header-subnav" aria-label="Quick Navigation">
+      <div class="container">
+        <ul class="subnav-links">
+          <li><a href="#occasions" class="subnav-link">Sacred Occasions</a></li>
+          <li><a href="#arches" class="subnav-link">Heritage Weaves</a></li>
+          <li><a href="#catalog" class="subnav-link active">Real Loom Archive</a></li>
+          <li><a href="#diaries" class="subnav-link">Client Diaries</a></li>
+          <li><a href="javascript:void(0)" id="subnavDealerLink" class="subnav-link">B2B Wholesale Portal</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================================================================
+         4. ROYAL HERO COUTURE BANNER
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-media-wrap">
+        <img src="assets/MYK-KD-10.jpg" alt="Benarasi Mashru Silk Kashmiri Darbaar Saree" loading="eager" onerror="this.src='assets/MYK-BM-04.jpg'">
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span>✦</span> Direct Handloom Pit-Looms • Mayukha Monopoly
+          </div>
+          <h2 class="hero-headline">
+            Authentic Silks From <span>Sacred Pit-Looms</span>
+          </h2>
+          <p class="hero-desc">
+            Directly from master weaving clusters to royal weddings and discerning boutiques worldwide. Discover pure Mashru Crepe, Munga Kalamkari, and Binny Chiffon Scallop designs.
+          </p>
+          <div class="hero-actions">
+            <a href="#catalog" class="btn-primary">
+              <span>Explore Authentic Catalog</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <button id="heroDealerBtn" class="btn-outline-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Unlock Wholesale Tariffs (PIN 2026)</span>
+            </button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Pure Silk Mark</p>
+            </div>
+            <div class="stat-item">
+              <h4>30+</h4>
+              <p>Years of Looms</p>
+            </div>
+            <div class="stat-item">
+              <h4>Direct</h4>
+              <p>Weaver Sourced</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. 4-ITEM LUXURY TRUST STRIP
+         ========================================================================= -->
+    <section class="trust-strip" aria-label="Brand Authenticity Guarantees">
+      <div class="container">
+        <div class="trust-grid">
+          
+          <div class="trust-item">
+            <div class="trust-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4>Silk Mark Certified</h4>
+              <p>100% genuine natural silks authenticated by Silk Board</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4>Mayukha Monopoly</h4>
+              <p>Exclusive designs & direct loom pricing with zero middlemen</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4>Worldwide Air Courier</h4>
+              <p>Fast insured delivery to USA, UK, UAE & across India</p>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <div class="trust-text">
+              <h4>Reseller Partner Support</h4>
+              <p>Transparent Ur rates, recommended quotes & WhatsApp concierge</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SHOP BY SACRED OCCASION (BENTO GRID)
+         ========================================================================= -->
+    <section class="occasion-section" id="occasions">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">Auspicious Celebrations</div>
+          <h2 class="section-title">Shop by Sacred Occasion</h2>
+          <p class="section-subtitle">
+            Authentic weaves curated for grand wedding pheras, reception evenings, and festive rituals.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          
+          <!-- Wedding -->
+          <div class="bento-card wedding" data-category="wedding" role="button" tabindex="0">
+            <img src="assets/MYK-KP-02.jpg" alt="Royal Wedding Pure Silks" loading="lazy" onerror="this.src='assets/MYK-BM-04.jpg'">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <span class="bento-tag">Sacred Vivah</span>
+              <h3 class="bento-title">Bridal & Muhurtham</h3>
+              <p class="bento-count">Munga Kalamkari, Pure Benarasi & Kashmiri Darbaar →</p>
+            </div>
+          </div>
+
+          <!-- Reception -->
+          <div class="bento-card reception" data-category="reception" role="button" tabindex="0">
+            <img src="assets/MYK-RC-05.jpg" alt="Reception & Evening Coutures" loading="lazy" onerror="this.src='assets/MYK-PT-07.jpg'">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <span class="bento-tag">Evening Splendor</span>
+              <h3 class="bento-title">Royal Reception</h3>
+              <p class="bento-count">Russian Crepe & Falling Tissue Parsi Work →</p>
+            </div>
+          </div>
+
+          <!-- Haldi -->
+          <div class="bento-card haldi" data-category="haldi" role="button" tabindex="0">
+            <img src="assets/MYK-MC-08.jpg" alt="Auspicious Haldi Silks" loading="lazy" onerror="this.src='assets/MYK-MS-01.jpg'">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <span class="bento-tag">Sunlit Hues</span>
+              <h3 class="bento-title">Auspicious Haldi</h3>
+              <p class="bento-count">Mysore Crepe Silk Skirt Gap Borders →</p>
+            </div>
+          </div>
+
+          <!-- Festive -->
+          <div class="bento-card festive" data-category="festive" role="button" tabindex="0">
+            <img src="assets/MYK-MS-01.jpg" alt="Festive Handlooms" loading="lazy" onerror="this.src='assets/MYK-BC-03.jpg'">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+              <span class="bento-tag">Divine Festivities</span>
+              <h3 class="bento-title">Temple & Festivals</h3>
+              <p class="bento-count">Mashru Crepe Lines & Binny Chiffon Scallop →</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. SIGNATURE HERITAGE WEAVE ARCHES
+         ========================================================================= -->
+    <section class="arches-section" id="arches">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">Living Traditions</div>
+          <h2 class="section-title">Signature Heritage Weave Arches</h2>
+          <p class="section-subtitle">
+            Master handloom lineages directly documented from our boutique inventory and artisan clusters.
+          </p>
+        </div>
+
+        <div class="arches-grid">
+          
+          <div class="arch-card">
+            <div class="arch-window">
+              <img src="assets/MYK-MS-01.jpg" alt="Mashru Crepe Weaving Lines" loading="lazy" onerror="this.src='assets/MYK-KP-02.jpg'">
+              <div class="arch-overlay"></div>
+              <span class="arch-origin">Varanasi Looms</span>
+            </div>
+            <h3 class="arch-name">Mashru Crepe</h3>
+            <p class="arch-sub">Weaving Lines & Peacock Borders</p>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-window">
+              <img src="assets/MYK-KP-02.jpg" alt="Munga Kalamkari Pattu Story Theme" loading="lazy" onerror="this.src='assets/MYK-BC-03.jpg'">
+              <div class="arch-overlay"></div>
+              <span class="arch-origin">Andhra & Assam</span>
+            </div>
+            <h3 class="arch-name">Munga Kalamkari</h3>
+            <p class="arch-sub">Story-Theme Penkalamkari Prints</p>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-window">
+              <img src="assets/MYK-BC-03.jpg" alt="Binny Chiffon Heavy Zari Pita" loading="lazy" onerror="this.src='assets/MYK-BM-04.jpg'">
+              <div class="arch-overlay"></div>
+              <span class="arch-origin">Mayukha Exclusive</span>
+            </div>
+            <h3 class="arch-name">Binny Chiffon</h3>
+            <p class="arch-sub">Heavy Zari Pita Scallop Work</p>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-window">
+              <img src="assets/MYK-BM-04.jpg" alt="Pure Benarasi Mashru Jaal" loading="lazy" onerror="this.src='assets/MYK-RC-05.jpg'">
+              <div class="arch-overlay"></div>
+              <span class="arch-origin">Varanasi Heritage</span>
+            </div>
+            <h3 class="arch-name">Benarasi Mashru</h3>
+            <p class="arch-sub">Allover Jaal & Attached Lace</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. CATALOG & DYNAMIC PRODUCT GRID
+         ========================================================================= -->
+    <section class="catalog-section" id="catalog">
+      <div class="container">
+        
+        <div class="text-center" style="margin-bottom: 32px;">
+          <div class="section-tag">Royal Loom Archive</div>
+          <h2 class="section-title">Authentic Boutique Inventory</h2>
+          <p class="section-subtitle">
+            Hover over any saree to reveal the rich pallu and blouse craftsmanship. Resellers can unlock the trade lounge with PIN <strong>2026</strong>.
+          </p>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="catalog-header-bar">
+          <div class="filter-pills" id="filterPillsContainer">
+            <button class="filter-pill active" data-category="all">All 10 Heirlooms</button>
+            <button class="filter-pill" data-category="wedding">Wedding Looms</button>
+            <button class="filter-pill" data-category="reception">Royal Reception</button>
+            <button class="filter-pill" data-category="haldi">Auspicious Haldi</button>
+            <button class="filter-pill" data-category="festive">Festive Celebrations</button>
+          </div>
+          <div class="catalog-count-badge" id="catalogCount">Showing 10 Authentic Loom Heirlooms</div>
+        </div>
+
+        <!-- Dynamic Product Container -->
+        <div class="product-grid" id="productContainer">
+          <!-- Dynamically populated by app.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. CLIENT DIARIES (5-STAR REVIEWS)
+         ========================================================================= -->
+    <section class="reviews-section" id="diaries">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-tag">Royal Patrons</div>
+          <h2 class="section-title">Client Diaries & Reseller Testimonials</h2>
+          <p class="section-subtitle">
+            Cherished feedback from brides and verified wholesale boutique partners across India and overseas.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The Pure Benarasi Mashru Jaal Weave (MYK-BM-04) I ordered for my wedding reception was breathtaking. The rich pallu weaving and attached lace border felt extraordinarily royal. Purity is 100% authentic."
+            </p>
+            <div class="reviewer-meta">
+              <img class="reviewer-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Dr. Ananya Rao" loading="lazy">
+              <div class="reviewer-info">
+                <h5>Dr. Ananya Rao</h5>
+                <p>Hyderabad • Verified Bride</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "As a boutique reseller in California, Mayukha's wholesale pricing formula makes stock management effortless. Ur price on Mashru Crepe at ₹2,699 with recommended quote ₹2,899 gives healthy margins with zero complaints on quality."
+            </p>
+            <div class="reviewer-meta">
+              <img class="reviewer-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Kavita Sundaram" loading="lazy">
+              <div class="reviewer-info">
+                <h5>Kavita Sundaram</h5>
+                <p>California, USA • Verified Reseller</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              "The Binny Chiffon Heavy Zari Pita Scallop is indeed a true monopoly design. Super lightweight, vibrant leheriya prints, and the embroidery blouse is ready-to-wear perfection. Quick WhatsApp response too!"
+            </p>
+            <div class="reviewer-meta">
+              <img class="reviewer-avatar" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80" alt="Meera Singhania" loading="lazy">
+              <div class="reviewer-info">
+                <h5>Meera Singhania</h5>
+                <p>Bengaluru • Verified Patron</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       10. LUXURY DARK ROYAL FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <div class="footer-col footer-brand">
+          <span style="color: var(--color-gold); font-size: 0.8rem; letter-spacing: 2px;">ESTD. 1994</span>
+          <h3>MAYUKHA</h3>
+          <p>
+            Celebrating the timeless majesty of Indian weaving traditions. Every saree carries the seal of artisan authenticity, pure silk certitude, and imperial heritage.
+          </p>
+          <div class="concierge-pill">
+            <span class="live-indicator"></span>
+            <span>WhatsApp Concierge: +91 90141 29045 (Online)</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Weave Lineages</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog">Soft Mashru Crepe</a></li>
+            <li><a href="#catalog">Munga Penkalamkari Pattu</a></li>
+            <li><a href="#catalog">Binny Chiffon Pita Scallop</a></li>
+            <li><a href="#catalog">Pure Benarasi Mashru Jaal</a></li>
+            <li><a href="#catalog">Falling Tissue Parsi Work</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Partner Services</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" id="footerDealerLink">Wholesale Reseller Login (PIN 2026)</a></li>
+            <li><a href="#hero">Silk Mark Verification</a></li>
+            <li><a href="javascript:void(0)" onclick="openCartDrawer()">Shopping Bag</a></li>
+            <li><a href="#hero">Custom Bridal Trousseau</a></li>
+            <li><a href="#hero">Worldwide Courier FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Royal Atelier</h4>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Mayukha Atelier, Heritage Loom Arcade, Hyderabad & Varanasi</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            <span>WhatsApp / Phone: +91 90141 29045</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Mon - Sat: 10:00 AM – 8:30 PM IST</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Mayukha Silks & Couture. Handcrafted with reverence.</div>
+        <div>Silk Mark License No: SMK/HYD/2026-9045 • All Rights Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       11. PIN AUTHENTICATION MODAL (#dealerModal)
+       ========================================================================= -->
+  <div class="modal-overlay" id="dealerModal" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="dealerModalClose" aria-label="Close wholesale modal">✕</button>
+      
+      <div class="dealer-modal-header">
+        <div class="dealer-icon-crown">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14v2H5v-2z"></path>
+          </svg>
+        </div>
+        <h3>Wholesale Reseller Lounge</h3>
+        <p>Enter your 4-digit security PIN to unlock direct "Ur Wholesale Rates" & recommended reseller quotes.</p>
+      </div>
+
+      <div class="dealer-modal-body">
+        <form id="dealerPinForm" onsubmit="event.preventDefault();">
+          <div class="pin-inputs-row" id="pinInputsContainer">
+            <input type="password" maxlength="1" class="pin-input" inputmode="numeric" pattern="[0-9]*" autofocus autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+            <input type="password" maxlength="1" class="pin-input" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
+          </div>
+
+          <div class="pin-error-msg" id="pinErrorMsg">
+            Incorrect PIN. Please re-enter the authorized 4-digit code.
+          </div>
+
+          <div class="pin-hint">
+            Authorized Reseller PIN: <strong>2026</strong>
+          </div>
+
+          <button type="submit" class="btn-unlock-dealer" id="btnSubmitPin">
+            Unlock Wholesale Tariffs
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       12. QUICK VIEW LIGHTBOX MODAL (#quickViewModal)
+       ========================================================================= -->
+  <div class="modal-overlay" id="quickViewModal" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="modal-card quick-view-card">
+      <button class="modal-close-btn" id="quickViewClose" aria-label="Close product view">✕</button>
+      
+      <!-- Gallery Column -->
+      <div class="quick-view-gallery">
+        <div class="qv-main-img-wrap">
+          <img id="qvMainImg" src="" alt="Saree Detail View">
+        </div>
+        <div class="qv-thumbs-row" id="qvThumbsRow">
+          <!-- Dynamic thumbnails -->
+        </div>
+      </div>
+
+      <!-- Details Column -->
+      <div class="quick-view-details">
+        <div class="qv-weave-tag" id="qvWeaveTag">Weave Category</div>
+        <h3 class="qv-title" id="qvTitle">Saree Title</h3>
+        <p class="qv-desc" id="qvDesc">Detailed description...</p>
+
+        <table class="qv-specs-table">
+          <tbody>
+            <tr>
+              <td class="label">Authentic Weave</td>
+              <td class="val" id="qvSpecWeave">-</td>
+            </tr>
+            <tr>
+              <td class="label">Pure Fabric</td>
+              <td class="val" id="qvSpecFabric">-</td>
+            </tr>
+            <tr>
+              <td class="label">Silk Mark</td>
+              <td class="val" id="qvSpecSilkMark">-</td>
+            </tr>
+            <tr>
+              <td class="label">Saree Length</td>
+              <td class="val">5.5 Meters + 0.8m Blouse Piece</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-wine); margin-bottom: 8px;">
+          Artisan Craftsmanship Highlights:
+        </div>
+        <ul class="qv-highlights-list" id="qvHighlightsList">
+          <!-- Populated by app.js -->
+        </ul>
+
+        <div class="qv-price-actions-box">
+          <div id="qvPriceBox" style="margin-bottom: 16px;">
+            <!-- Rendered according to dealer / retail mode -->
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <button id="qvAddToCartBtn" class="btn-primary" style="flex: 1; justify-content: center;">
+              Add to Shopping Bag
+            </button>
+            <button id="qvWhatsAppBtn" class="btn-quick-wa" style="width: 48px; height: 48px;" title="Order via WhatsApp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       13. SLIDE-OUT CART DRAWER (#cartDrawer)
+       ========================================================================= -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart">
+    
+    <div class="drawer-header">
+      <h3>Your Bridal Bag (<span id="cartDrawerCount">0</span>)</h3>
+      <button class="btn-drawer-close" id="cartDrawerClose" aria-label="Close Cart">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker (Threshold: ₹5,000) -->
+    <div class="shipping-progress-wrap">
+      <div class="shipping-msg" id="shippingMsg">
+        <span>🚚</span>
+        <span id="shippingMsgText">Add ₹5,000 for Complimentary Heritage Dispatch</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="shippingProgressFill" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <!-- Cart Item Rows -->
+    <div class="cart-items-body" id="cartItemsContainer">
+      <!-- Populated dynamically by app.js -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="drawer-footer" id="drawerFooter">
+      <div class="drawer-subtotal-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="drawer-subtotal-row">
+        <span>Heritage Shipping</span>
+        <span id="cartShippingFee" style="color: var(--color-green); font-weight: 700;">FREE</span>
+      </div>
+      <div class="drawer-total-row">
+        <h4>Grand Total</h4>
+        <div class="drawer-total-amt" id="cartGrandTotal">₹0</div>
+      </div>
+
+      <!-- 1-Click Direct WhatsApp Checkout -->
+      <button id="btnWhatsAppCheckout" class="btn-checkout-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span>1-Click WhatsApp Checkout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- =========================================================================
+       14. TOAST NOTIFICATIONS CONTAINER
+       ========================================================================= -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
